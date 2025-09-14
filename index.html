@@ -817,7 +817,7 @@
       }
 
       /* High contrast mode */
-      @media (prefers-contrast: high) {
+      @media (prefers-contrast: more) {
         :root {
           --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3);
           --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
@@ -975,6 +975,125 @@
       #services .text-muted {
         color: #94a3b8 !important;
       }
+      
+      /* Enhanced keyboard navigation styles */
+      .keyboard-nav *:focus {
+        outline: 3px solid var(--primary) !important;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      .keyboard-nav .card-modern:focus,
+      .keyboard-nav .portfolio-item:focus,
+      .keyboard-nav .stat-card:focus {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Loading animations */
+      .loaded .hero-content {
+        animation: slideInUp 1s ease-out;
+      }
+
+      .loaded .hero-visual {
+        animation: slideInRight 1s ease-out 0.3s both;
+      }
+
+      /* Enhanced button states */
+      .btn.loading {
+        position: relative;
+        color: transparent !important;
+      }
+
+      .btn.loading::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        left: 50%;
+        margin-left: -10px;
+        margin-top: -10px;
+        border: 2px solid transparent;
+        border-top-color: currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      /* Smooth transitions for all interactive elements */
+      * {
+        transition: background-color 0.3s ease, color 0.3s ease,
+          transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+      }
+
+      /* Enhanced mobile responsiveness */
+      @media (max-width: 991.98px) {
+        .navbar-custom {
+          transition: transform 0.3s ease;
+        }
+      }
+
+      /* High contrast mode adjustments */
+      @media (prefers-contrast: more) {
+        .card-modern,
+        .portfolio-item,
+        .stat-card {
+          border: 2px solid var(--gray-300);
+        }
+
+        .btn {
+          border-width: 2px;
+        }
+      }
+
+      /* Print optimizations */
+      @media print {
+        .navbar,
+        .btn,
+        .hero-shapes,
+        .stats-bg,
+        .footer-bg {
+          display: none !important;
+        }
+
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .hero-section {
+          min-height: auto !important;
+          padding: 2rem 0 !important;
+        }
+
+        .section {
+          page-break-inside: avoid;
+        }
+      }
+
+      /* Reduced motion accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+
+        .animate-pulse {
+          animation: none;
+        }
+      }
+
+      /* Dark mode enhancements */
+      @media (prefers-color-scheme: dark) {
+        .card-modern {
+          background: rgba(30, 41, 59, 0.8);
+          backdrop-filter: blur(20px);
+        }
+      }
     </style>
   </head>
 
@@ -986,7 +1105,6 @@
     <nav
       class="navbar navbar-expand-lg fixed-top navbar-custom"
       id="mainNav"
-      role="navigation"
       aria-label="Main navigation"
     >
       <div class="container">
@@ -1498,6 +1616,7 @@
       <section class="stats-section py-5">
         <div class="stats-bg"></div>
         <div class="container stats-content">
+          <h2 class="text-center mb-5 visually-hidden">Our Statistics</h2>
           <div class="row g-4">
             <div
               class="col-lg-3 col-md-6"
@@ -1748,7 +1867,7 @@
                           id="firstName"
                           placeholder="First Name"
                           required
-                        />
+                        >
                         <label for="firstName">First Name *</label>
                         <div class="invalid-feedback">
                           Please provide your first name.
@@ -1763,7 +1882,7 @@
                           id="lastName"
                           placeholder="Last Name"
                           required
-                        />
+                        >
                         <label for="lastName">Last Name *</label>
                         <div class="invalid-feedback">
                           Please provide your last name.
@@ -1778,7 +1897,7 @@
                           id="email"
                           placeholder="Email"
                           required
-                        />
+                        >
                         <label for="email">Email Address *</label>
                         <div class="invalid-feedback">
                           Please provide a valid email address.
@@ -1792,7 +1911,7 @@
                           class="form-control"
                           id="phone"
                           placeholder="Phone"
-                        />
+                        >
                         <label for="phone">Phone Number</label>
                       </div>
                     </div>
@@ -1839,7 +1958,7 @@
                           class="form-check-input"
                           type="checkbox"
                           id="newsletter"
-                        />
+                        >
                         <label class="form-check-label" for="newsletter">
                           Subscribe to our newsletter for industry insights and
                           updates
@@ -1870,8 +1989,8 @@
                 </div>
                 <h5 class="fw-bold mb-3">Visit Our Office</h5>
                 <p class="text-muted mb-0">
-                  123 Innovation Boulevard<br />
-                  Tech District, Silicon Valley<br />
+                  123 Innovation Boulevard<br>
+                  Tech District, Silicon Valley<br>
                   CA 94043, United States
                 </p>
               </div>
@@ -1883,8 +2002,8 @@
                 </div>
                 <h5 class="fw-bold mb-3">Call Us Today</h5>
                 <p class="text-muted mb-0">
-                  +1 (555) 123-4567<br />
-                  Available Mon-Fri<br />
+                  +1 (555) 123-4567<br>
+                  Available Mon-Fri<br>
                   9:00 AM - 6:00 PM PST
                 </p>
               </div>
@@ -1896,8 +2015,8 @@
                 </div>
                 <h5 class="fw-bold mb-3">Email Us</h5>
                 <p class="text-muted mb-0">
-                  hello@innovationhub.com<br />
-                  support@innovationhub.com<br />
+                  hello@innovationhub.com<br>
+                  support@innovationhub.com<br>
                   careers@innovationhub.com
                 </p>
               </div>
@@ -2015,7 +2134,7 @@
           </div>
         </div>
 
-        <hr class="my-5 border-secondary opacity-25" />
+        <hr class="my-5 border-secondary opacity-25">
 
         <div class="row align-items-center">
           <div class="col-md-6">
@@ -2499,148 +2618,6 @@
       });
     </script>
 
-    <!-- Additional CSS for enhanced interactions -->
-    <style>
-      /* Enhanced keyboard navigation styles */
-      .keyboard-nav *:focus {
-        outline: 3px solid var(--primary) !important;
-        outline-offset: 2px;
-        border-radius: 4px;
-      }
 
-      .keyboard-nav .card-modern:focus,
-      .keyboard-nav .portfolio-item:focus,
-      .keyboard-nav .stat-card:focus {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      /* Loading animations */
-      .loaded .hero-content {
-        animation: slideInUp 1s ease-out;
-      }
-
-      .loaded .hero-visual {
-        animation: slideInRight 1s ease-out 0.3s both;
-      }
-
-      @keyframes slideInUp {
-        from {
-          opacity: 0;
-          transform: translateY(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      /* Enhanced button states */
-      .btn.loading {
-        position: relative;
-        color: transparent !important;
-      }
-
-      .btn.loading::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        top: 50%;
-        left: 50%;
-        margin-left: -10px;
-        margin-top: -10px;
-        border: 2px solid transparent;
-        border-top-color: currentColor;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-
-      /* Smooth transitions for all interactive elements */
-      * {
-        transition: background-color 0.3s ease, color 0.3s ease,
-          transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-      }
-
-      /* Enhanced mobile responsiveness */
-      @media (max-width: 991.98px) {
-        .navbar-custom {
-          transition: transform 0.3s ease;
-        }
-      }
-
-      /* High contrast mode adjustments */
-      @media (prefers-contrast: high) {
-        .card-modern,
-        .portfolio-item,
-        .stat-card {
-          border: 2px solid var(--gray-300);
-        }
-
-        .btn {
-          border-width: 2px;
-        }
-      }
-
-      /* Print optimizations */
-      @media print {
-        .navbar,
-        .btn,
-        .hero-shapes,
-        .stats-bg,
-        .footer-bg {
-          display: none !important;
-        }
-
-        * {
-          animation: none !important;
-          transition: none !important;
-        }
-
-        .hero-section {
-          min-height: auto !important;
-          padding: 2rem 0 !important;
-        }
-
-        .section {
-          page-break-inside: avoid;
-        }
-      }
-
-      /* Reduced motion accessibility */
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
-
-        .animate-pulse {
-          animation: none;
-        }
-      }
-
-      /* Dark mode enhancements */
-      @media (prefers-color-scheme: dark) {
-        .card-modern {
-          background: rgba(30, 41, 59, 0.8);
-          backdrop-filter: blur(20px);
-        }
-      }
-    </style>
   </body>
 </html>
