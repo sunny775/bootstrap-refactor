@@ -8,34 +8,69 @@
       name="description"
       content="Leading digital transformation consultancy specializing in modern web solutions and user experience optimization."
     />
+    
+    <!-- Performance and SEO meta tags -->
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Innovation Hub" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Caching and compression hints -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+    <meta http-equiv="Expires" content="Thu, 31 Dec 2024 23:59:59 GMT" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    
+    <!-- Preload critical font subset -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
 
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Bootstrap 5.3 CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" /></noscript>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" /></noscript>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" /></noscript>
 
-    <!-- AOS Animation Library -->
+    <!-- AOS Animation Library - deferred -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" /></noscript>
 
+    <!-- Critical CSS inlined for performance -->
     <style>
+      /* Critical above-the-fold styles */
+      *{margin:0;padding:0;box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{font-family:"Inter",system-ui,-apple-system,sans-serif;line-height:1.6;color:#1e293b;background:#f8fafc;overflow-x:hidden}
+      .navbar-custom{background:rgba(248,250,252,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(226,232,240,0.8);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);padding:1rem 0}
+      .hero-section{position:relative;min-height:100vh;display:flex;align-items:center;background:#f8fafc;overflow:hidden}
+      .btn-primary{background:linear-gradient(135deg,#6366f1 0%,#06b6d4 100%);border:none;color:white;font-weight:600;padding:0.75rem 2rem;border-radius:0.75rem;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+      
       :root {
         /* Modern Color Palette */
         --primary: #6366f1;
@@ -2153,21 +2188,39 @@
       </div>
     </footer>
 
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Preload critical JavaScript -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" as="script" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" as="script" />
+    
+    <!-- Bootstrap JavaScript - deferred -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" defer></script>
 
-    <!-- AOS Animation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- AOS Animation Library - deferred -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
 
     <!-- Custom JavaScript -->
     <script>
-      // Initialize AOS animations
-      AOS.init({
-        duration: 800,
-        easing: "ease-in-out",
-        once: true,
-        offset: 100,
-      });
+      // Initialize AOS animations when library is loaded
+      function initAOS() {
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 800,
+            easing: "ease-in-out",
+            once: true,
+            offset: 100,
+          });
+        } else {
+          // Retry after a short delay if AOS is not loaded yet
+          setTimeout(initAOS, 100);
+        }
+      }
+      
+      // Call initAOS when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAOS);
+      } else {
+        initAOS();
+      }
 
       // Navbar scroll effects
       const navbar = document.getElementById("mainNav");
@@ -2577,15 +2630,81 @@
         });
       }
 
+      // Core Web Vitals and Performance Monitoring
+      function measureWebVitals() {
+        // Largest Contentful Paint (LCP)
+        new PerformanceObserver((entryList) => {
+          const entries = entryList.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          console.log('LCP:', lastEntry.startTime);
+          // Track LCP metric
+        }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+        // First Input Delay (FID)
+        new PerformanceObserver((entryList) => {
+          const firstInput = entryList.getEntries()[0];
+          if (firstInput) {
+            const fid = firstInput.processingStart - firstInput.startTime;
+            console.log('FID:', fid);
+            // Track FID metric
+          }
+        }).observe({ type: 'first-input', buffered: true });
+
+        // Cumulative Layout Shift (CLS)
+        let clsValue = 0;
+        let clsEntries = [];
+        new PerformanceObserver((entryList) => {
+          for (const entry of entryList.getEntries()) {
+            if (!entry.hadRecentInput) {
+              clsEntries.push(entry);
+              clsValue += entry.value;
+            }
+          }
+          console.log('CLS:', clsValue);
+          // Track CLS metric
+        }).observe({ type: 'layout-shift', buffered: true });
+      }
+
       // Analytics and performance monitoring setup
       function trackPageView() {
         // Implement your analytics tracking here
         console.log("Page view tracked");
+        measureWebVitals();
       }
 
       function trackEvent(action, category, label) {
         // Implement your event tracking here
         console.log("Event tracked:", { action, category, label });
+      }
+
+      // Performance optimizations for better Core Web Vitals
+      function optimizeForWebVitals() {
+        // Reduce layout shifts by setting dimensions
+        document.querySelectorAll('img, video, iframe').forEach(element => {
+          if (!element.width || !element.height) {
+            element.style.aspectRatio = '16/9';
+          }
+        });
+
+        // Optimize font loading to prevent layout shifts
+        if ('fonts' in document) {
+          document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
+          });
+        }
+
+        // Preload next page resources on hover
+        document.querySelectorAll('a[href]').forEach(link => {
+          link.addEventListener('mouseenter', () => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('/')) {
+              const prefetchLink = document.createElement('link');
+              prefetchLink.rel = 'prefetch';
+              prefetchLink.href = href;
+              document.head.appendChild(prefetchLink);
+            }
+          }, { once: true });
+        });
       }
 
       // Track important user interactions
@@ -2599,6 +2718,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         trackPageView();
         updateActiveNavLink();
+        optimizeForWebVitals();
 
         // Add loading complete class for additional animations
         setTimeout(() => {
